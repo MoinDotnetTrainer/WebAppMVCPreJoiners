@@ -1,0 +1,34 @@
+﻿@using WebAppMVCPreJoiners.Models
+@model Values
+@{
+    ViewData["Title"] = "Div";
+}
+
+<h1>Div</h1>
+
+<form method="post">
+    <table>
+        <tr>
+            <td>X</td>
+            <td>
+                <input type="number"  asp-for="x"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td>
+                <input type="number"  asp-for="y"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="submit" />
+            </td>
+            <td>
+                @TempData["res"]
+            </td>
+        </tr>
+    </table>
+</form>
+
