@@ -27,7 +27,7 @@ namespace WebAppMVCPreJoiners.Controllers
                 int result = _employeesRepo.AddEmployee(employees);
                 if (result > 0)
                 {
-                    return View();
+                    return RedirectToAction("List");
                 }
                 else
                 {
@@ -36,5 +36,40 @@ namespace WebAppMVCPreJoiners.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult List()
+        {
+            return View(_employeesRepo.List());
+        }
+
+
+        [HttpGet]
+        public IActionResult Details(int Eid)
+        {
+            return View(_employeesRepo.Details(Eid));
+        }
+
+
+        [HttpGet]
+        public IActionResult Edit(int Eid)  
+        {
+            return View(_employeesRepo.Details(Eid)); // getting data on load
+        }
+
+        // Data is binding from Database to Model to View 
+
+
+        [HttpPost]
+        public IActionResult Edit(Employees emp)
+        {
+            if (emp != null)
+            {
+                _employeesRepo.UpdateEmployees(emp); // updating data on post
+                return RedirectToAction("List");
+            }
+            return View();
+        }
+
     }
 }

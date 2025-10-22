@@ -14,6 +14,18 @@ namespace DataAccessLayer.Respo
         // absatrct methods
 
         int AddEmployee(Employees emp);  // without implemnattion for add employyes
+
+        // display
+        //update
+        //delete
+
+        IEnumerable<Employees> List();  // which all employees
+
+        // Details getting employes based on ID
+
+        Employees Details(int Eid);  // only employee details based on ID
+
+        int UpdateEmployees(Employees Emp);
     }
 
 }
